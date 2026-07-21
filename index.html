@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Rose ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:white;
+overflow:hidden;
+font-family:'Cormorant Garamond',serif;
+}
+
+#background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("EBC28A77-37C0-4672-AD1B-39BB42ED7EFE.JPEG") center center/cover no-repeat;
+display:none;
+z-index:-2;
+}
+
+#background::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.25);
+}
+
+#start{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+padding:18px 50px;
+font-size:30px;
+border:none;
+border-radius:50px;
+background:#ff4f7d;
+color:white;
+cursor:pointer;
+box-shadow:0 0 30px rgba(255,0,80,.4);
+}
+
+#message{
+display:none;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+max-width:650px;
+text-align:center;
+color:white;
+font-size:28px;
+line-height:1.8;
+text-shadow:2px 2px 8px black;
+animation:fade 3s;
+z-index:10;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translate(-50%,-40%);
+}
+to{
+opacity:1;
+transform:translate(-50%,-50%);
+}
+}
+
+.heart,.rose{
+position:fixed;
+top:-40px;
+font-size:28px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="background"></div>
+
+<button id="start">Start ❤️</button>
+
+<div id="message">
+
+To Rose<br><br>
+
+Happy Birthday to the love of my life.<br>
+
+May your day be as beautiful as you are.<br><br>
+
+With all my love,<br>
+
+Yasser Alsheikhly ❤️
+
+</div>
+
+<audio id="music" src="v14044g50000d9epla7og65jsseu9r90.mp3"></audio>
+
+<script>
+
+const start=document.getElementById("start");
+const music=document.getElementById("music");
+const message=document.getElementById("message");
+const bg=document.getElementById("background");
+
+start.onclick=function(){
+
+start.style.display="none";
+
+bg.style.display="block";
+
+message.style.display="block";
+
+music.play();
+
+setInterval(makeHeart,350);
+
+setInterval(makeRose,500);
+
+}
+
+function makeHeart(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(4+Math.random()*4)+"s";
+
+h.style.fontSize=(18+Math.random()*25)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),8000);
+
+}
+
+function makeRose(){
+
+const r=document.createElement("div");
+
+r.className="rose";
+
+r.innerHTML="🌹";
+
+r.style.left=Math.random()*100+"vw";
+
+r.style.animationDuration=(5+Math.random()*4)+"s";
+
+r.style.fontSize=(18+Math.random()*28)+"px";
+
+document.body.appendChild(r);
+
+setTimeout(()=>r.remove(),9000);
+
+}
+
+</script>
+
+</body>
+</html>
